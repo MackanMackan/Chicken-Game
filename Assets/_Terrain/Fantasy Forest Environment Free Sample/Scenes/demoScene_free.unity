@@ -489,10 +489,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1647644454, guid: 3cd8c52370012de4582b5a0515cc7c51, type: 3}
-      propertyPath: m_movementAnimationSpeedMultiplier
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 3657214173173959847, guid: 3cd8c52370012de4582b5a0515cc7c51,
         type: 3}
       propertyPath: m_RootOrder
@@ -548,21 +544,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3854744211795156238, guid: 3cd8c52370012de4582b5a0515cc7c51,
-        type: 3}
-      propertyPath: m_jumpHeight
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3854744211795156238, guid: 3cd8c52370012de4582b5a0515cc7c51,
-        type: 3}
-      propertyPath: m_playerSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3854744211795156238, guid: 3cd8c52370012de4582b5a0515cc7c51,
-        type: 3}
-      propertyPath: m_gravityValue
-      value: -7.81
-      objectReference: {fileID: 0}
     - target: {fileID: 4146364199712232989, guid: 3cd8c52370012de4582b5a0515cc7c51,
         type: 3}
       propertyPath: m_Name
@@ -576,7 +557,7 @@ PrefabInstance:
     - target: {fileID: 4213227795861645190, guid: 3cd8c52370012de4582b5a0515cc7c51,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1198
+      value: 1201
       objectReference: {fileID: 0}
     - target: {fileID: 6594214734206534431, guid: 3cd8c52370012de4582b5a0515cc7c51,
         type: 3}
