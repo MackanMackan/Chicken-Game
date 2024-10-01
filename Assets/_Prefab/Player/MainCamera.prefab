@@ -50,10 +50,10 @@ MonoBehaviour:
   m_cameraTransform: {fileID: 2997724731084295851}
   m_targetToFollow: {fileID: 0}
   m_cameraOffsetPosFromTarget: {x: 3, y: 2}
-  m_followSpeed: 1
+  m_followSpeed: 0.2
   m_targetToLookAt: {fileID: 0}
-  m_cameraOffsetLookAtTarget: {x: 0, y: 0.8, z: 0}
-  m_lookAtSmoothness: 1
+  m_cameraOffsetLookAtTarget: {x: 0, y: 1.09, z: 0}
+  m_lookAtSmoothness: 5
 --- !u!20 &2997724731084295850
 Camera:
   m_ObjectHideFlags: 0

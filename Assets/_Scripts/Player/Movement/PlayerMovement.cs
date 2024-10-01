@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private CharacterController m_playerController;
+    [SerializeField] private PlayerAbilities m_playerAbilities;
     [SerializeField] private float m_playerSpeed = 2.0f;
     [SerializeField] private float m_playerRotationSpeed = 2.0f;
     [SerializeField] private float m_jumpHeight = 1.0f;
@@ -12,10 +13,26 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 m_playerVelocity;
     private bool m_isGrounded = true;
-    private Vector3 m_movement;
+    private Vector3 m_movementFromInput;
+    private float m_movementSpeedMultiplier = 1f;
 
-    public float NormalizedMovementSpeed => m_playerSpeed * (m_movement.magnitude / m_playerSpeed);
-    public float MovementSpeed => m_playerSpeed * m_movement.magnitude;
+    public float NormalizedMovementSpeed => m_playerSpeed * (m_movementFromInput.magnitude / m_playerSpeed);
+    public float MovementSpeed => m_playerSpeed * m_movementFromInput.magnitude;
+
+    public float MovementSpeedMultiplier
+    {
+        get => m_movementSpeedMultiplier;
+        set
+        {
+            if (value <= 1f)
+            {
+                m_movementSpeedMultiplier = 1f;
+                Debug.LogError("MovementSpeedMultiplier under 1");
+            }
+            m_movementSpeedMultiplier = value;
+        }
+    }
+
     public bool IsGrounded => m_isGrounded;
 
     void Update()
@@ -27,34 +44,40 @@ public class PlayerMovement : MonoBehaviour
     public void GetMovementValueFromInput(InputAction.CallbackContext movementVector)
     {
         Vector2 movementValue = movementVector.ReadValue<Vector2>();
-        m_movement = new Vector3(movementValue.x, 0, movementValue.y);
+        
+        // This is if you are charging you want to keep the charge at maximum running speed or else it will feel weird
+        // Keeps player running at max speed but still can turn
+        m_movementFromInput = new Vector3(movementValue.x, 0, movementValue.y);
     }
 
     private void PlayerMove()
     {
-        Vector3 rotationDirection = m_movement.x < 0 ? -transform.right : transform.right;
+        Vector3 rotationDirection = m_movementFromInput.x < 0 ? -transform.right : transform.right;
 
-        if (m_movement != Vector3.zero)
+        if (m_movementFromInput != Vector3.zero)
         {
             Quaternion nextRotation = Quaternion.RotateTowards(transform.rotation,
                 Quaternion.LookRotation(rotationDirection),
-                m_playerRotationSpeed * Mathf.Abs(m_movement.x));
+                m_playerRotationSpeed * Mathf.Abs(m_movementFromInput.x));
 
             transform.rotation = nextRotation;
         }
 
-        if (m_movement.z < 0)
+        if (m_movementFromInput.z < 0)
             return;
 
         m_playerController.Move(
-            gameObject.transform.forward * (m_movement.magnitude * (Time.deltaTime * m_playerSpeed)));
+            gameObject.transform.forward * (m_movementFromInput.magnitude * 
+                                            (Time.deltaTime * m_playerSpeed * m_movementSpeedMultiplier)));
     }
 
+    // Called from unity event
     public void SetIsGrounded(bool isGrounded)
     {
         m_isGrounded = isGrounded;
     }
 
+    // Called from unity event
     public void Jump()
     {
         if (!m_isGrounded) return;

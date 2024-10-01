@@ -1164,6 +1164,7 @@ GameObject:
   - component: {fileID: 3623270588042744988}
   - component: {fileID: 3854744211795156238}
   - component: {fileID: 1647644454}
+  - component: {fileID: 1647644452}
   m_Layer: 0
   m_Name: PlayerChicken
   m_TagString: Untagged
@@ -1260,7 +1261,19 @@ MonoBehaviour:
     m_ActionId: 58865e9a-9833-46ab-8c74-9e4ba11cb86a
     m_ActionName: Player/Attack[/Mouse/leftButton]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1647644452}
+        m_TargetAssemblyTypeName: PlayerAbilities, Assembly-CSharp
+        m_MethodName: DoChargeAbility
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: fc67876e-76fe-4845-8a21-ffbce4e0b8f1
     m_ActionName: Player/Charge[/Mouse/rightButton]
   - m_PersistentCalls:
@@ -1327,8 +1340,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerController: {fileID: 3623270588042744988}
-  m_playerSpeed: 3
-  m_playerRotationSpeed: 0.4
+  m_playerAbilities: {fileID: 1647644452}
+  m_playerSpeed: 5
+  m_playerRotationSpeed: 1.2
   m_jumpHeight: 0.6
   m_gravityValue: -7.81
 --- !u!114 &1647644454
@@ -1346,6 +1360,23 @@ MonoBehaviour:
   m_playerAnimator: {fileID: 3840358359643501082}
   m_playerMovement: {fileID: 3854744211795156238}
   m_movementAnimationSpeedMultiplier: 1.5
+--- !u!114 &1647644452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4146364199712232989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5c9ead312ed7040a01d21fa5e7e614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_playerMovement: {fileID: 3854744211795156238}
+  m_chargeSpeedMultiplier: 5
+  m_chargeDuration: 0.2
+  m_chargeSlowDownTime: 0.1
+  IsCharging: 0
 --- !u!1 &4469628810756578877
 GameObject:
   m_ObjectHideFlags: 0
@@ -2282,7 +2313,7 @@ PrefabInstance:
     - target: {fileID: 3817368427893139727, guid: 951875a9832d653459d8b049e8fa2f96,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1198
+      value: 1219
       objectReference: {fileID: 0}
     - target: {fileID: 6125242231410986390, guid: 951875a9832d653459d8b049e8fa2f96,
         type: 3}
