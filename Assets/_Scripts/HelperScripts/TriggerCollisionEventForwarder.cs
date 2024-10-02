@@ -11,10 +11,12 @@ public class TriggerCollisionEventForwarder : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         OnTriggerEntered?.Invoke(other);
+        Debug.Log("Entered");
     }
 
     private void OnTriggerExit(Collider other)
     {
         OnTriggerExited?.Invoke(other);
+        Debug.Log("Exit");
     }
 }

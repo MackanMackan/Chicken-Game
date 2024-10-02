@@ -903,6 +903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2b92cc5ade7f1479066394c0485ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_mainRigidBody: {fileID: 484416223700771595}
   m_rigidbodies:
   - {fileID: 1647644477}
   - {fileID: 1647644475}
@@ -2010,8 +2011,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 737408620639984268}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: SetRagdoll
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 268d6820-7b58-412b-98a1-a23cb4c1db40
     m_ActionName: Player/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 737408620639984268}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: SetRagdoll
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_ActionId: 47de75ac-7d7c-43f5-adb8-27a307754ebc
+    m_ActionName: Player/DebugButton[/XInputControllerWindows/dpad/up,/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -2029,6 +2058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f6614f5e995cc5469de143c4fed82fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_chickenTransform: {fileID: 2100935451955916539}
   m_playerMovement: {fileID: 3854744211795156238}
   m_playerAbilities: {fileID: 1647644452}
   m_animationController: {fileID: 1647644454}
@@ -2097,7 +2127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c5c9ead312ed7040a01d21fa5e7e614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerController: {fileID: 0}
+  m_playerController: {fileID: 737408620639984268}
   m_chargeSpeedMultiplier: 5
   m_chargeDuration: 0.2
   m_chargeSlowDownTime: 0.1
@@ -3588,7 +3618,7 @@ PrefabInstance:
     - target: {fileID: 3817368427893139727, guid: 951875a9832d653459d8b049e8fa2f96,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1249
+      value: 1273
       objectReference: {fileID: 0}
     - target: {fileID: 6125242231410986390, guid: 951875a9832d653459d8b049e8fa2f96,
         type: 3}
