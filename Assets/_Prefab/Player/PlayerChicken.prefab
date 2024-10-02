@@ -484,7 +484,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.001
+  m_Radius: 0.0005
   m_Height: 0.004
   m_Direction: 1
   m_Center: {x: 0, y: 0.0005, z: 0.0005}
@@ -1800,11 +1800,11 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: 18.055756
+    limit: -63.10911
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 70
+    limit: 14.581329
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
@@ -2343,18 +2343,18 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: 6.386279
+    limit: -30.64908
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 70
+    limit: 44.84375
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 28.908
+    limit: 8.403759
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
@@ -3619,7 +3619,7 @@ PrefabInstance:
     - target: {fileID: 3817368427893139727, guid: 951875a9832d653459d8b049e8fa2f96,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1288
+      value: 1294
       objectReference: {fileID: 0}
     - target: {fileID: 6125242231410986390, guid: 951875a9832d653459d8b049e8fa2f96,
         type: 3}
