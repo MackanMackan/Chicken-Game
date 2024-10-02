@@ -12,6 +12,9 @@ public class AnimationController : MonoBehaviour
     private int m_movementSpeedHash;
     private int m_normalizedMovementSpeedHash;
     private int m_isGroundedHash;
+    
+    public Animator Animator => m_playerAnimator;
+    
     void Start()
     {
         m_jumpTriggerHash = Animator.StringToHash("Jump");

@@ -1,16 +1,24 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class PlayerAbilities : MonoBehaviour
 {
-    [SerializeField] private PlayerMovement m_playerMovement;
+    [SerializeField] private PlayerController m_playerController;
     
     [Header("Charge")]
     [SerializeField] private float m_chargeSpeedMultiplier;
     [SerializeField] private float m_chargeDuration;
     [SerializeField] private float m_chargeSlowDownTime;
 
+    private PlayerMovement m_playerMovement;
+
     public bool IsCharging;
+
+    private void Start()
+    {
+        m_playerMovement = m_playerController.m_playerMovement;
+    }
 
     // Called as event from Input
     public void DoChargeAbility()
