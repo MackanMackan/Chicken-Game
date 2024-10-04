@@ -59,6 +59,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495d4f2036145db4bb9bfdab5f077ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_useTag: 0
+  TagFilterList: []
+  m_useLayer: 0
+  m_layersToCheck:
+    serializedVersion: 2
+    m_Bits: 4294967295
   OnTriggerEntered:
     m_PersistentCalls:
       m_Calls:
@@ -1874,7 +1880,7 @@ GameObject:
   - component: {fileID: 3854744211795156238}
   - component: {fileID: 1647644454}
   - component: {fileID: 1647644452}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerChicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2011,13 +2017,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 737408620639984268}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: SetRagdoll
-        m_Mode: 6
+      - m_Target: {fileID: 1647644452}
+        m_TargetAssemblyTypeName: PlayerAbilities, Assembly-CSharp
+        m_MethodName: DoStuck
+        m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Collider, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2132,7 +2138,39 @@ MonoBehaviour:
   m_chargeSpeedMultiplier: 5
   m_chargeDuration: 0.2
   m_chargeSlowDownTime: 0.1
+  m_headRigidbody: {fileID: 0}
+  m_gotStuck:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 737408620639984268}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: SetRagdoll
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  m_gotUnstuck:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 737408620639984268}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: SetRagdoll
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   IsCharging: 0
+  IsStuck: 0
 --- !u!1 &4469628810756578877
 GameObject:
   m_ObjectHideFlags: 0
@@ -3619,7 +3657,7 @@ PrefabInstance:
     - target: {fileID: 3817368427893139727, guid: 951875a9832d653459d8b049e8fa2f96,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1294
+      value: 1315
       objectReference: {fileID: 0}
     - target: {fileID: 6125242231410986390, guid: 951875a9832d653459d8b049e8fa2f96,
         type: 3}
@@ -3630,6 +3668,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: P_AxeHead
+      objectReference: {fileID: 0}
+    - target: {fileID: 6157498624955816624, guid: 951875a9832d653459d8b049e8fa2f96,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6158983051226449914, guid: 951875a9832d653459d8b049e8fa2f96,
         type: 3}
@@ -3708,6 +3751,64 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 951875a9832d653459d8b049e8fa2f96, type: 3}
+--- !u!1 &6625274883830748217 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6157498624955816624, guid: 951875a9832d653459d8b049e8fa2f96,
+    type: 3}
+  m_PrefabInstance: {fileID: 1045503649695796873}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &7819123328775711556
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6625274883830748217}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &2686535572024039389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6625274883830748217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 495d4f2036145db4bb9bfdab5f077ff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_useTag: 0
+  TagFilterList: []
+  m_useLayer: 0
+  m_layersToCheck:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  OnTriggerEntered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1647644452}
+        m_TargetAssemblyTypeName: PlayerAbilities, Assembly-CSharp
+        m_MethodName: DoStuck
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Collider, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTriggerExited:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &6628025913655101811 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6158983051226449914, guid: 951875a9832d653459d8b049e8fa2f96,
@@ -3834,25 +3935,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3840358359540868438}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4508194275316813743 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 854526531615582969, guid: dd5dec63dd2b5494590ac688cc340795,
-    type: 3}
-  m_PrefabInstance: {fileID: 3840358359540868438}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &2074029747
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4508194275316813743}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
