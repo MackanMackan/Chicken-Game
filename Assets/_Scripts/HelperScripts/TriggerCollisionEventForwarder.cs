@@ -17,6 +17,7 @@ public class TriggerCollisionEventForwarder : MonoBehaviour
     
     public UnityEvent<Collider> OnTriggerEntered;
     public UnityEvent<Collider> OnTriggerExited;
+    public UnityEvent<Collider> OnTriggerStayed;
     
     private void OnTriggerEnter(Collider other)
     {
@@ -26,6 +27,11 @@ public class TriggerCollisionEventForwarder : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         OnTriggerExited?.Invoke(other);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        OnTriggerStayed?.Invoke(other);
     }
 
     private void CheckTag(string[] tags)
