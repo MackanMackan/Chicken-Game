@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         get => m_movementSpeedMultiplier;
         set
         {
-            if (value <= 1f)
+            if (value < 1f)
             {
                 m_movementSpeedMultiplier = 1f;
                 Debug.LogError("MovementSpeedMultiplier under 1");
