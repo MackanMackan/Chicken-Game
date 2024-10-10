@@ -95,6 +95,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnTriggerStayed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &1952289891
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2107,6 +2110,8 @@ MonoBehaviour:
   m_playerRotationSpeed: 1.2
   m_jumpHeight: 0.3
   m_gravityValue: -7.81
+  m_unstuckJumpForce: 15
+  m_unstuckBackForce: 10
 --- !u!114 &1647644454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2139,7 +2144,7 @@ MonoBehaviour:
   m_chargeDuration: 0.2
   m_chargeSlowDownTime: 0.1
   m_headRigidbody: {fileID: 1647644473}
-  m_unstuckCooldown: 3
+  m_unstuckCooldown: 0.5
   m_gotStuck:
     m_PersistentCalls:
       m_Calls:
@@ -2162,6 +2167,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: SetRagdoll
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3854744211795156238}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: UnstuckJump
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3658,7 +3675,7 @@ PrefabInstance:
     - target: {fileID: 3817368427893139727, guid: 951875a9832d653459d8b049e8fa2f96,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1342
+      value: 1357
       objectReference: {fileID: 0}
     - target: {fileID: 6125242231410986390, guid: 951875a9832d653459d8b049e8fa2f96,
         type: 3}
@@ -3810,6 +3827,21 @@ MonoBehaviour:
   OnTriggerExited:
     m_PersistentCalls:
       m_Calls: []
+  OnTriggerStayed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1647644452}
+        m_TargetAssemblyTypeName: PlayerAbilities, Assembly-CSharp
+        m_MethodName: DoStuck
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &6628025913655101811 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6158983051226449914, guid: 951875a9832d653459d8b049e8fa2f96,

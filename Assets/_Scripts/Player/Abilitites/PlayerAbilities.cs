@@ -46,7 +46,7 @@ public class PlayerAbilities : MonoBehaviour
         // Duration of charge
         for (float timeSpent = 0; timeSpent < m_chargeDuration; timeSpent += Time.deltaTime)
         {
-            // If break, set back to normal speeds
+            // If Stuck, set back to normal speeds
             if (IsStuck)
             {
                 m_playerMovement.MovementSpeedMultiplier = 1f;
@@ -56,7 +56,8 @@ public class PlayerAbilities : MonoBehaviour
 
             yield return null;
         }
-
+        
+        // TODO: Split this to its own method
         // Duration to slowdown back to normal speed assumed is 1
         float differenceInSpeedValue = m_chargeSpeedMultiplier - 1f;
         for (float timeSpent = 0f; timeSpent < m_chargeSlowDownTime; timeSpent += Time.deltaTime)
@@ -64,8 +65,13 @@ public class PlayerAbilities : MonoBehaviour
             float normalizedTime = timeSpent / m_chargeSlowDownTime;
             float nextSpeedMultiplier = m_chargeSpeedMultiplier - differenceInSpeedValue * normalizedTime;
 
+            // If Stuck, set back to normal speeds
             if (nextSpeedMultiplier < 1 || IsStuck)
+            {
+                m_playerMovement.MovementSpeedMultiplier = 1f;
+                IsCharging = false;
                 yield break;
+            }
 
             m_playerMovement.MovementSpeedMultiplier = nextSpeedMultiplier;
             yield return null;
