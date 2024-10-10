@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour
         
         // Turn off the animator or else it will not ragdoll
         m_animationController.Animator.enabled = !willRagdoll;
-        m_playerMovement.enabled = !willRagdoll;
         m_playerCharacterController.enabled = !willRagdoll;
         m_ragdollController.RagdollPlayer(willRagdoll);
         

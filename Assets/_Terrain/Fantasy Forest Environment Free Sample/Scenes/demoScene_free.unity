@@ -438,7 +438,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1436
+  m_Name: pb_Mesh-1434
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -603,6 +603,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1647644452, guid: 3cd8c52370012de4582b5a0515cc7c51, type: 3}
+      propertyPath: m_unstuckCooldown
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1647644452, guid: 3cd8c52370012de4582b5a0515cc7c51, type: 3}
+      propertyPath: m_gotUnstuck.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1647644452, guid: 3cd8c52370012de4582b5a0515cc7c51, type: 3}
+      propertyPath: m_gotUnstuck.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1647644452, guid: 3cd8c52370012de4582b5a0515cc7c51, type: 3}
+      propertyPath: m_gotUnstuck.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1647644450}
+    - target: {fileID: 1647644452, guid: 3cd8c52370012de4582b5a0515cc7c51, type: 3}
+      propertyPath: m_gotUnstuck.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1647644452, guid: 3cd8c52370012de4582b5a0515cc7c51, type: 3}
+      propertyPath: m_gotUnstuck.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UnstuckJump
+      objectReference: {fileID: 0}
+    - target: {fileID: 1647644452, guid: 3cd8c52370012de4582b5a0515cc7c51, type: 3}
+      propertyPath: m_gotUnstuck.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PlayerMovement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1647644452, guid: 3cd8c52370012de4582b5a0515cc7c51, type: 3}
+      propertyPath: m_gotUnstuck.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3657214173173959847, guid: 3cd8c52370012de4582b5a0515cc7c51,
         type: 3}
       propertyPath: m_RootOrder
@@ -658,6 +690,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3854744211795156238, guid: 3cd8c52370012de4582b5a0515cc7c51,
+        type: 3}
+      propertyPath: m_unstuckBackForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3854744211795156238, guid: 3cd8c52370012de4582b5a0515cc7c51,
+        type: 3}
+      propertyPath: m_unstuckJumpForce
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4146364199712232989, guid: 3cd8c52370012de4582b5a0515cc7c51,
         type: 3}
       propertyPath: m_Name
@@ -671,7 +713,7 @@ PrefabInstance:
     - target: {fileID: 4213227795861645190, guid: 3cd8c52370012de4582b5a0515cc7c51,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1318
+      value: 1351
       objectReference: {fileID: 0}
     - target: {fileID: 6594214734206534431, guid: 3cd8c52370012de4582b5a0515cc7c51,
         type: 3}
@@ -686,6 +728,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1647644448}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1647644450 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3854744211795156238, guid: 3cd8c52370012de4582b5a0515cc7c51,
+    type: 3}
+  m_PrefabInstance: {fileID: 1647644448}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f687f41ad4a3fc408bb2dc50f5a9d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2997724732260576056
 PrefabInstance:
   m_ObjectHideFlags: 0

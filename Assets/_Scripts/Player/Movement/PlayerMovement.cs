@@ -7,10 +7,19 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private CharacterController m_characterController;
     [SerializeField] private PlayerController m_playerController;
+    
+    [Header("Movement")]
     [SerializeField] private float m_playerSpeed = 2.0f;
     [SerializeField] private float m_playerRotationSpeed = 2.0f;
+    
+    [Header("Jumping")]
     [SerializeField] private float m_jumpHeight = 1.0f;
     [SerializeField] private float m_gravityValue = -9.81f;
+    
+    [Header("Unstuck")]
+    [SerializeField] private float m_unstuckJumpForce = 1.0f;
+    [SerializeField] private float m_unstuckBackForce = 1.0f;
+
 
     private Vector3 m_playerVelocity;
     private bool m_isGrounded = true;
@@ -38,7 +47,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        PlayerMove();
+        // Work around instead of disable this script and not affecting the player velocity
+        // Need to Zero out player Velocity when stuck
+        if (!m_playerController.m_playerAbilities.IsStuck)
+            PlayerMove();
         ApplyGravity();
     }
 
@@ -72,28 +84,40 @@ public class PlayerMovement : MonoBehaviour
                                             (Time.deltaTime * m_playerSpeed * m_movementSpeedMultiplier)));
     }
 
+    private void ApplyGravity()
+    {
+        // Do this zero velocity before check if character controller is enabled because
+        // else it saves its previous velocity when getting stuck
+        if (m_isGrounded && m_playerVelocity.y < 0 || m_playerController.m_playerAbilities.IsStuck)
+        {
+            m_playerVelocity = Vector3.zero;
+        }
+        
+        if (!m_characterController.enabled) return;
+
+        m_playerVelocity.y += m_gravityValue * Time.deltaTime;
+        m_characterController.Move(m_playerVelocity * Time.deltaTime);
+    }
+    
     // Called from unity event
     public void SetIsGrounded(bool isGrounded)
     {
         m_isGrounded = isGrounded;
     }
 
-    // Called from unity event
+    // Called from player input event
     public void Jump()
     {
         if (!m_isGrounded) return;
         
         m_playerVelocity.y += Mathf.Sqrt(m_jumpHeight * -3.0f * m_gravityValue);
     }
-
-    private void ApplyGravity()
+    
+    // Called from unstuck event on Player Abilities
+    public void UnstuckJump()
     {
-        if (m_isGrounded && m_playerVelocity.y < 0 || m_playerController.m_playerAbilities.IsStuck)
-        {
-            m_playerVelocity.y = 0f;
-        }
-
-        m_playerVelocity.y += m_gravityValue * Time.deltaTime;
-        m_characterController.Move(m_playerVelocity * Time.deltaTime);
+        m_playerVelocity.y += Mathf.Sqrt(m_unstuckJumpForce);
+        m_playerVelocity += -transform.forward * Mathf.Sqrt(m_unstuckBackForce);
     }
+
 }
