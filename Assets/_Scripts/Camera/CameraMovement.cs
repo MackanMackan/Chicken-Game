@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
 public class CameraMovement : MonoBehaviour
@@ -20,6 +21,13 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private Vector3 m_cameraOffsetLookAtTarget;
     [SerializeField] private float m_lookAtSmoothness;
 
+    [FormerlySerializedAs("m_movementFromInput")]
+    [Space]
+    [Header("Rotate Around Player")]
+    [SerializeField] private Vector3 m_lookFromInput;
+    [SerializeField] private float m_rotateSpeed;
+
+
     // To get camera direction, for moving in the cameras direction
     public Transform CameraReference => m_cameraReferenceTransform;
 
@@ -27,14 +35,18 @@ public class CameraMovement : MonoBehaviour
     {
         FollowTarget();
         LookAtTarget();
+        RotateAroundPlayerFromInput();
     }
     
     private void FollowTarget()
     {
         Vector3 cameraPosition = m_cameraTransform.position;
+        Vector3 targetActualPosition = m_targetToFollow.position;
+        Vector3 followDirection = (transform.position - Vector3.up * m_cameraOffsetPosFromTarget.y -
+                                   targetActualPosition).normalized;
         
-        Vector3 targetToFollowPosition = -m_targetToFollow.forward * 
-            m_cameraOffsetPosFromTarget.x + m_targetToFollow.position;
+        Vector3 targetToFollowPosition = followDirection * m_cameraOffsetPosFromTarget.x
+                                         + targetActualPosition;
         
         Vector3 targetPosition = new Vector3(targetToFollowPosition.x,
             targetToFollowPosition.y + m_cameraOffsetPosFromTarget.y,
@@ -55,6 +67,20 @@ public class CameraMovement : MonoBehaviour
 
         m_cameraTransform.rotation = nextRotation;
     }
+    
+    // Called from Input Event on Player
+    public void GetLookValueFromInput(InputAction.CallbackContext movementVector)
+    {
+        Vector2 movementValue = movementVector.ReadValue<Vector2>();
+        m_lookFromInput = new Vector3(movementValue.x, 0, movementValue.y);
+    }
+
+    private void RotateAroundPlayerFromInput()
+    {
+        transform.RotateAround(m_targetToLookAt.position, Vector3.up,
+            m_rotateSpeed * m_lookFromInput.x * Time.deltaTime);
+    }
+    
 #if UNITY_EDITOR
     
     private void OnDrawGizmos()
