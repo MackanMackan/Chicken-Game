@@ -2138,7 +2138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_playerAnimator: {fileID: 3840358359643501082}
   m_playerMovement: {fileID: 3854744211795156238}
-  m_movementAnimationSpeedMultiplier: 1.5
+  m_movementAnimationSpeedMultiplier: 0.7
 --- !u!114 &1647644452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3687,7 +3687,7 @@ PrefabInstance:
     - target: {fileID: 3817368427893139727, guid: 951875a9832d653459d8b049e8fa2f96,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1369
+      value: 1372
       objectReference: {fileID: 0}
     - target: {fileID: 6125242231410986390, guid: 951875a9832d653459d8b049e8fa2f96,
         type: 3}
