@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         m_characterController.Move(
-            transform.forward * (m_movementFromInput.z * 
+            transform.forward * (m_movementFromInput.magnitude * 
                                  (Time.deltaTime * m_playerSpeed * m_movementSpeedMultiplier)));
     }
 

@@ -56,7 +56,7 @@ MonoBehaviour:
   m_cameraOffsetLookAtTarget: {x: 0, y: 1.09, z: 0}
   m_lookAtSmoothness: 5
   m_lookFromInput: {x: 0, y: 0, z: 0}
-  m_rotateSpeed: 600
+  m_rotateSpeed: 200
 --- !u!20 &2997724731084295850
 Camera:
   m_ObjectHideFlags: 0
