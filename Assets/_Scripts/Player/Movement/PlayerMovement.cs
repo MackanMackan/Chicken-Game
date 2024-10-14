@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     
     [Header("Movement")]
     [SerializeField] private float m_playerSpeed = 2.0f;
-    [SerializeField] private float m_playerRotationSpeed = 2.0f;
     
     [Header("Jumping")]
     [SerializeField] private float m_jumpHeight = 1.0f;

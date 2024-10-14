@@ -1197,7 +1197,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-61050
+  m_Name: pb_Mesh-1552
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1430,33 +1430,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1647644451, guid: 3cd8c52370012de4582b5a0515cc7c51, type: 3}
-      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647644451, guid: 3cd8c52370012de4582b5a0515cc7c51, type: 3}
-      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647644451, guid: 3cd8c52370012de4582b5a0515cc7c51, type: 3}
       propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1928749870}
-    - target: {fileID: 1647644451, guid: 3cd8c52370012de4582b5a0515cc7c51, type: 3}
-      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647644451, guid: 3cd8c52370012de4582b5a0515cc7c51, type: 3}
-      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GetLookValueFromInput
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647644451, guid: 3cd8c52370012de4582b5a0515cc7c51, type: 3}
-      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CameraMovement, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1647644451, guid: 3cd8c52370012de4582b5a0515cc7c51, type: 3}
-      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 737408620639984268, guid: 3cd8c52370012de4582b5a0515cc7c51,
         type: 3}
       propertyPath: m_cameraMovement
@@ -1517,11 +1493,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3854744211795156238, guid: 3cd8c52370012de4582b5a0515cc7c51,
-        type: 3}
-      propertyPath: m_unstuckJumpForce
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 4146364199712232989, guid: 3cd8c52370012de4582b5a0515cc7c51,
         type: 3}
       propertyPath: m_Name
@@ -1535,7 +1506,7 @@ PrefabInstance:
     - target: {fileID: 4213227795861645190, guid: 3cd8c52370012de4582b5a0515cc7c51,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1363
+      value: 1372
       objectReference: {fileID: 0}
     - target: {fileID: 6594214734206534431, guid: 3cd8c52370012de4582b5a0515cc7c51,
         type: 3}
@@ -2011,11 +1982,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 688852727699658483, guid: 601e0a06e52f2fb45b180c09588dd3be,
-        type: 3}
-      propertyPath: m_rotateSpeed
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 688852727699658483, guid: 601e0a06e52f2fb45b180c09588dd3be,
         type: 3}
       propertyPath: m_targetToFollow

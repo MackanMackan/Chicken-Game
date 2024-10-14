@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class AnimationController : MonoBehaviour
 {
@@ -34,8 +35,10 @@ public class AnimationController : MonoBehaviour
         m_playerAnimator.SetBool(m_isGroundedHash, m_playerMovement.IsGrounded);
     }
 
-    public void DoJumpAnimation()
+    public void DoJumpAnimation(InputAction.CallbackContext buttonPressed)
     {
+        if(!buttonPressed.performed) return;
+        
         m_playerAnimator.SetTrigger(m_jumpTriggerHash);
     }
 }

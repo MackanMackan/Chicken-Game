@@ -1971,7 +1971,19 @@ MonoBehaviour:
     m_ActionId: 857729c2-57e1-462d-974f-97e13be75cb5
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CameraMovement, Assembly-CSharp
+        m_MethodName: GetLookValueFromInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: e15b9506-0fad-4b46-9ca0-ba1ce8eabbf8
     m_ActionName: Player/Look[/Mouse/delta]
   - m_PersistentCalls:
@@ -2023,7 +2035,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1647644454}
         m_TargetAssemblyTypeName: AnimationController, Assembly-CSharp
         m_MethodName: DoJumpAnimation
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2071,6 +2083,7 @@ MonoBehaviour:
   m_playerCharacterController: {fileID: 3623270588042744988}
   m_playerMovement: {fileID: 3854744211795156238}
   m_playerAbilities: {fileID: 1647644452}
+  m_cameraMovement: {fileID: 0}
   m_animationController: {fileID: 1647644454}
   m_ragdollController: {fileID: 6230705798992350402}
   IsRagdoll: 0
@@ -2107,10 +2120,9 @@ MonoBehaviour:
   m_characterController: {fileID: 3623270588042744988}
   m_playerController: {fileID: 737408620639984268}
   m_playerSpeed: 5
-  m_playerRotationSpeed: 1.2
   m_jumpHeight: 0.3
   m_gravityValue: -7.81
-  m_unstuckJumpForce: 15
+  m_unstuckJumpForce: 25
   m_unstuckBackForce: 10
 --- !u!114 &1647644454
 MonoBehaviour:
@@ -3675,7 +3687,7 @@ PrefabInstance:
     - target: {fileID: 3817368427893139727, guid: 951875a9832d653459d8b049e8fa2f96,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1357
+      value: 1369
       objectReference: {fileID: 0}
     - target: {fileID: 6125242231410986390, guid: 951875a9832d653459d8b049e8fa2f96,
         type: 3}
