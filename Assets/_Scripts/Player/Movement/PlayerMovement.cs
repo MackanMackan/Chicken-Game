@@ -1,7 +1,5 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -71,8 +69,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void PlayerMove()
     {
-        Vector3 rotationDirection = m_movementFromInput.x < 0 ? -m_cameraReference.right : m_cameraReference.right;
-
         if (m_movementFromInput != Vector3.zero)
         {
             // Quaternion nextRotation = Quaternion.RotateTowards(transform.rotation,

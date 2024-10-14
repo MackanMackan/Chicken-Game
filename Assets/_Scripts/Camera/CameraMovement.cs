@@ -20,13 +20,12 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private Transform m_targetToLookAt;
     [SerializeField] private Vector3 m_cameraOffsetLookAtTarget;
     [SerializeField] private float m_lookAtSmoothness;
-
-    [FormerlySerializedAs("m_movementFromInput")]
+    
     [Space]
     [Header("Rotate Around Player")]
-    [SerializeField] private Vector3 m_lookFromInput;
     [SerializeField] private float m_rotateSpeed;
 
+    private Vector3 m_lookFromInput;
 
     // To get camera direction, for moving in the cameras direction
     public Transform CameraReference => m_cameraReferenceTransform;
