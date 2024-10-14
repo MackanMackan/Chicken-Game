@@ -6,6 +6,7 @@ public class CameraMovement : MonoBehaviour
 {
     [Header("Camera")]
     [SerializeField] private Transform m_cameraTransform;
+    [SerializeField] private Transform m_cameraReferenceTransform;
     
     [Space]
     [Header("Follow")]
@@ -18,6 +19,9 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private Transform m_targetToLookAt;
     [SerializeField] private Vector3 m_cameraOffsetLookAtTarget;
     [SerializeField] private float m_lookAtSmoothness;
+
+    // To get camera direction, for moving in the cameras direction
+    public Transform CameraReference => m_cameraReferenceTransform;
 
     void LateUpdate()
     {

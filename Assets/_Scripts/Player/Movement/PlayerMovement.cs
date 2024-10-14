@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private bool m_isGrounded = true;
     private Vector3 m_movementFromInput;
     private float m_movementSpeedMultiplier = 1f;
+    private Transform m_cameraReference;
 
     public float NormalizedMovementSpeed => m_playerSpeed * (m_movementFromInput.magnitude / m_playerSpeed);
     public float MovementSpeed => m_playerSpeed * m_movementFromInput.magnitude;
@@ -44,6 +45,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public bool IsGrounded => m_isGrounded;
+
+    private void Start()
+    {
+        m_cameraReference = m_playerController.m_cameraMovement.CameraReference;
+    }
 
     void Update()
     {
@@ -65,23 +71,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void PlayerMove()
     {
-        Vector3 rotationDirection = m_movementFromInput.x < 0 ? -transform.right : transform.right;
+        Vector3 rotationDirection = m_movementFromInput.x < 0 ? -m_cameraReference.right : m_cameraReference.right;
 
         if (m_movementFromInput != Vector3.zero)
         {
-            Quaternion nextRotation = Quaternion.RotateTowards(transform.rotation,
-                Quaternion.LookRotation(rotationDirection),
-                m_playerRotationSpeed * Mathf.Abs(m_movementFromInput.x));
-
+            // Quaternion nextRotation = Quaternion.RotateTowards(transform.rotation,
+            //     Quaternion.LookRotation(rotationDirection),
+            //     m_playerRotationSpeed * Mathf.Abs(m_movementFromInput.x));
+            Quaternion nextRotation = Quaternion.LookRotation(m_movementFromInput) * 
+                                      Quaternion.LookRotation(m_cameraReference.forward);
             transform.rotation = nextRotation;
         }
 
-        if (m_movementFromInput.z < 0)
-            return;
-
         m_characterController.Move(
-            gameObject.transform.forward * (m_movementFromInput.magnitude * 
-                                            (Time.deltaTime * m_playerSpeed * m_movementSpeedMultiplier)));
+            transform.forward * (m_movementFromInput.z * 
+                                 (Time.deltaTime * m_playerSpeed * m_movementSpeedMultiplier)));
     }
 
     private void ApplyGravity()

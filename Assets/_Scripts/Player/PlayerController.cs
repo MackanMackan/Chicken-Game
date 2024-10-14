@@ -1,7 +1,3 @@
-
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -11,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public CharacterController m_playerCharacterController;
     public PlayerMovement m_playerMovement;
     public PlayerAbilities m_playerAbilities;
+    public CameraMovement m_cameraMovement;
     public AnimationController m_animationController;
     public RagdollController m_ragdollController;
 
