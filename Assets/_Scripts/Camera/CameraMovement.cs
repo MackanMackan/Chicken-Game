@@ -1,7 +1,5 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 public class CameraMovement : MonoBehaviour
 {
@@ -14,6 +12,7 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private Transform m_targetToFollow;
     [SerializeField] private Vector2 m_cameraOffsetPosFromTarget;
     [SerializeField] private float m_followSpeed = 1;
+    [SerializeField] private float m_distanceToStartFollowing = 3;
     
     [Space]
     [Header("Look At")]
@@ -26,17 +25,30 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private float m_rotateSpeed;
 
     private Vector3 m_lookFromInput;
+    private bool m_isStuck;
 
     // To get camera direction, for moving in the cameras direction
     public Transform CameraReference => m_cameraReferenceTransform;
 
     void LateUpdate()
     {
-        FollowTarget();
         LookAtTarget();
+        
+        if ((m_targetToFollow.position - m_cameraTransform.position).sqrMagnitude
+            > MathX.Sqr(m_distanceToStartFollowing))
+            m_isStuck = false;
+        
+        if (m_isStuck) return;
+
+        FollowTarget();
         RotateAroundPlayerFromInput();
     }
-    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        m_isStuck = true;
+    }
+
     private void FollowTarget()
     {
         Vector3 cameraPosition = m_cameraTransform.position;

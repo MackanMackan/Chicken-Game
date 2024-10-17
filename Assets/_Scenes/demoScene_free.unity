@@ -1493,6 +1493,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3854744211795156238, guid: 3cd8c52370012de4582b5a0515cc7c51,
+        type: 3}
+      propertyPath: m_unstuckBackForce
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4146364199712232989, guid: 3cd8c52370012de4582b5a0515cc7c51,
         type: 3}
       propertyPath: m_Name
